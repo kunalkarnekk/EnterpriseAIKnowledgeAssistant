@@ -1,7 +1,28 @@
+using EnterpriseAI.Infrastructure.Configuration;
+using EnterpriseAI.Application.Interfaces;
+using EnterpriseAI.Infrastructure.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.Configure<AzureOpenAIOptions>(
+builder.Configuration.GetSection("AzureOpenAI"));
+
+
+builder.Services.AddSingleton<IAzureOpenAIService>(sp =>
+{
+    var configuration =
+    sp.GetRequiredService<IConfiguration>();
+    var options =
+    configuration
+    .GetSection("AzureOpenAI")
+    .Get<AzureOpenAIOptions>()
+    ?? throw new InvalidOperationException(
+    "Azure OpenAI configuration is missing.");
+    return new AzureOpenAIService(options);
+});
 
 var app = builder.Build();
 

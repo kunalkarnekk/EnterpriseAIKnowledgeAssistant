@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EnterpriseAIKnowledgeAssistant\EnterpriseAI.Application.csproj" />
+  </ItemGroup>
+
 </Project>
