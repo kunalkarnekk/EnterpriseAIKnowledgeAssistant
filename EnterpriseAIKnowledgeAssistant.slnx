@@ -1,6 +1,6 @@
 <Solution>
   <Project Path="EnterpriseAI.Domain/EnterpriseAI.Domain.csproj" />
   <Project Path="EnterpriseAI.Infrastructure/EnterpriseAI.Infrastructure.csproj" />
-  <Project Path="EnterpriseAI.Web/EnterpriseAI.Web.csproj" />
+  <Project Path="EnterpriseAI.Web/EnterpriseAI.Web.csproj" Id="914a00db-44eb-4f7a-b9e3-e6d970827474" />
   <Project Path="EnterpriseAIKnowledgeAssistant/EnterpriseAI.Application.csproj" />
 </Solution>
