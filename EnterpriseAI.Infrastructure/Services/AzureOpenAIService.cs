@@ -21,15 +21,11 @@ namespace EnterpriseAI.Infrastructure.Services
 
 
         public async Task<string> GetResponseAsync(
-            string prompt,
+            IReadOnlyList<ChatMessage> messages,
             CancellationToken cancellationToken = default)
         {
             ChatCompletion completion = 
-                await _chatClient.CompleteChatAsync(
-                [
-                    new UserChatMessage(prompt)
-                ],
-            cancellationToken: cancellationToken);
+                await _chatClient.CompleteChatAsync(messages, cancellationToken: cancellationToken);
             return completion.Content[0].Text;
         }
     }

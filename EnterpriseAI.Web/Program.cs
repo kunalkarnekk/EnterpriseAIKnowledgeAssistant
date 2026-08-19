@@ -17,6 +17,8 @@ builder.Services.AddSingleton<IAzureOpenAIService>(sp =>
             ?? throw new InvalidOperationException("Azure OpenAI configuration is missing."); 
     return new AzureOpenAIService(options);
 });
+
+builder.Services.AddSingleton<IConversationService, InMemoryConversationService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
